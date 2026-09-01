@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>منوی کافه سان</title>
+<style>
+:root{--green:#06281f;--gold:#c9962c;--cream:#f7f1e5;--text:#171717}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Tahoma,Arial,sans-serif;color:var(--text)}
+header{background:var(--green);color:#fff;padding:22px 16px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{margin:0;color:#e0ad3d;font-size:30px}
+header p{margin:8px 0 0;color:#eee}
+.wrap{max-width:900px;margin:auto;padding:18px}
+.section{margin:16px 0;background:#fffaf1;border:1px solid #d7b36a;border-radius:18px;padding:18px}
+.section h2{margin:0 0 14px;text-align:center;color:var(--green);font-size:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.item{display:flex;align-items:end;gap:8px;padding:8px 0}
+.name{white-space:nowrap}
+.dots{flex:1;border-bottom:2px dotted #999;margin-bottom:5px}
+.price{font-weight:bold;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{text-align:center;padding:10px;border:1px solid #ead7ae;border-radius:12px}
+.card .name{display:block;font-weight:bold}
+.card .price{display:block;margin-top:6px}
+footer{text-align:center;padding:18px;color:#666}
+@media(max-width:650px){
+.grid,.cards{grid-template-columns:1fr}
+.wrap{padding:10px}
+header h1{font-size:25px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>☀️ منوی کافه سان</h1>
+<p>یک فنجان قهوه، یک لحظه برای خودت.</p>
+</header>
+
+<main class="wrap" id="menu"></main>
+
+<footer>sun.cafe.parand</footer>
+
+<script>
+const menu = [
+{title:"☕ قهوه گرم",items:[
+["اسپرسو سینگل",90],["دبل",120],["آمریکانو",120],
+["کاپوچینو",140],["لاته",150],["موکا",170]]},
+
+{title:"❄️ قهوه سرد",items:[
+["آیس آمریکانو",120],["آیس‌لاته",150],["آفوگاتو",160]]},
+
+{title:"🍵 نوشیدنی گرم",items:[
+["چای",70],["دمنوش",110],["ماسالا",150],["هات چاکلت",160]]},
+
+{title:"🥤 نوشیدنی سرد",items:[
+["لیموناد",150],["موهیتو",160],["شیرموز",180]]},
+
+{title:"🍔 غذا",cards:[
+["چیزبرگر",350],["پاستا آلفردو مرغ",370],["ماشروم چیزبرگر",390]]},
+
+{title:"🍟 پیش‌غذا",items:[
+["سیب‌زمینی مخصوص",175],["نان سیر",130]]},
+
+{title:"🥗 سالاد",items:[
+["سالاد سزار با مرغ",290]]},
+
+{title:"🥤 شیک",items:[
+["شیک شکلات",190],["شیک موز شکلات",210],["شیک نوتلا",240]]},
+
+{title:"🍰 کیک و دسر",cards:[
+["کیک شکلاتی",150],["چیزکیک",180],["تیرامیسو",200],
+["براونی با بستنی",210],["کوکی شکلاتی",90]]}
+];
+
+const el=document.getElementById("menu");
+const toman=n=>new Intl.NumberFormat("fa-IR").format(n)+" تومان";
+
+menu.forEach(s=>{
+const box=document.createElement("section");
+box.className="section";
+box.innerHTML=`<h2>${s.title}</h2>`;
+
+if(s.items){
+const g=document.createElement("div");
+g.className="grid";
+s.items.forEach(([n,p])=>{
+g.innerHTML+=`<div class="item">
+<span class="name">${n}</span>
+<span class="dots"></span>
+<span class="price">${toman(p)}</span>
+</div>`;
+});
+box.appendChild(g);
+}
+
+if(s.cards){
+const g=document.createElement("div");
+g.className="cards";
+s.cards.forEach(([n,p])=>{
+g.innerHTML+=`<div class="card">
+<span class="name">${n}</span>
+<span class="price">${toman(p)}</span>
+</div>`;
+});
+box.appendChild(g);
+}
+
+el.appendChild(box);
+});
+</script>
+</body>
+</html>
