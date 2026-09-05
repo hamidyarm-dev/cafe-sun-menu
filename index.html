@@ -1,37 +1,258 @@
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>منوی کافه سان</title>
+
 <style>
-:root{--green:#06281f;--gold:#c9962c;--cream:#f7f1e5;--text:#171717}
+:root{
+--green:#06281f;
+--gold:#c9962c;
+--cream:#f7f1e5;
+--text:#171717;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);font-family:Tahoma,Arial,sans-serif;color:var(--text)}
-header{background:var(--green);color:#fff;padding:22px 16px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;color:#e0ad3d;font-size:30px}
-header p{margin:8px 0 0;color:#eee}
-.wrap{max-width:900px;margin:auto;padding:18px}
-.section{margin:16px 0;background:#fffaf1;border:1px solid #d7b36a;border-radius:18px;padding:18px}
-.section h2{margin:0 0 14px;text-align:center;color:var(--green);font-size:24px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.item{display:flex;align-items:end;gap:8px;padding:8px 0}
-.name{white-space:nowrap}
-.dots{flex:1;border-bottom:2px dotted #999;margin-bottom:5px}
-.price{font-weight:bold;white-space:nowrap}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{text-align:center;padding:10px;border:1px solid #ead7ae;border-radius:12px}
-.card .name{display:block;font-weight:bold}
-.card .price{display:block;margin-top:6px}
-footer{text-align:center;padding:18px;color:#666}
+
+body{
+margin:0;
+background:var(--cream);
+font-family:Tahoma,Arial,sans-serif;
+color:var(--text);
+padding-bottom:90px;
+}
+
+header{
+background:var(--green);
+color:#fff;
+padding:22px 16px;
+text-align:center;
+border-bottom:4px solid var(--gold);
+}
+
+header h1{
+margin:0;
+color:#e0ad3d;
+font-size:30px;
+}
+
+header p{
+margin:8px 0 0;
+color:#eee;
+}
+
+.wrap{
+max-width:900px;
+margin:auto;
+padding:18px;
+}
+
+.section{
+margin:16px 0;
+background:#fffaf1;
+border:1px solid #d7b36a;
+border-radius:18px;
+padding:18px;
+}
+
+.section h2{
+margin:0 0 14px;
+text-align:center;
+color:var(--green);
+font-size:24px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.item{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 0;
+}
+
+.name{
+white-space:nowrap;
+font-weight:500;
+}
+
+.dots{
+flex:1;
+border-bottom:2px dotted #999;
+margin-bottom:2px;
+}
+
+.price{
+font-weight:bold;
+white-space:nowrap;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.card{
+text-align:center;
+padding:12px;
+border:1px solid #ead7ae;
+border-radius:12px;
+background:#fff;
+}
+
+.card .name{
+display:block;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.card .price{
+display:block;
+margin-bottom:10px;
+}
+
+.add-btn{
+border:0;
+background:var(--green);
+color:white;
+border-radius:8px;
+padding:8px 14px;
+font-family:inherit;
+cursor:pointer;
+font-size:14px;
+}
+
+.add-btn:active{
+transform:scale(.97);
+}
+
+.cart-bar{
+position:fixed;
+bottom:0;
+right:0;
+left:0;
+background:var(--green);
+color:white;
+padding:12px 16px;
+display:flex;
+justify-content:center;
+z-index:1000;
+box-shadow:0 -3px 12px rgba(0,0,0,.2);
+}
+
+.cart-button{
+width:100%;
+max-width:500px;
+border:0;
+border-radius:12px;
+padding:14px;
+background:var(--gold);
+color:#fff;
+font-family:inherit;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.cart-panel{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:2000;
+padding:20px;
+}
+
+.cart-box{
+background:#fffaf1;
+max-width:500px;
+max-height:85vh;
+overflow:auto;
+margin:30px auto;
+border-radius:18px;
+padding:20px;
+}
+
+.cart-box h2{
+text-align:center;
+color:var(--green);
+margin-top:0;
+}
+
+.cart-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #ddd;
+}
+
+.qty{
+display:flex;
+align-items:center;
+gap:7px;
+}
+
+.qty button{
+width:30px;
+height:30px;
+border:0;
+border-radius:7px;
+background:var(--green);
+color:#fff;
+font-size:18px;
+}
+
+.total{
+font-size:19px;
+font-weight:bold;
+text-align:center;
+padding:18px 0;
+}
+
+.close-btn{
+width:100%;
+border:0;
+border-radius:10px;
+padding:12px;
+font-family:inherit;
+background:#ddd;
+font-size:16px;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:18px;
+color:#666;
+}
+
 @media(max-width:650px){
-.grid,.cards{grid-template-columns:1fr}
-.wrap{padding:10px}
-header h1{font-size:25px}
+.grid,.cards{
+grid-template-columns:1fr;
+}
+
+.wrap{
+padding:10px;
+}
+
+header h1{
+font-size:25px;
+}
 }
 </style>
 </head>
+
 <body>
+
 <header>
 <h1>☀️ منوی کافه سان</h1>
 <p>یک فنجان قهوه، یک لحظه برای خودت.</p>
@@ -41,7 +262,33 @@ header h1{font-size:25px}
 
 <footer>sun.cafe.parand</footer>
 
+<div class="cart-bar">
+<button class="cart-button" onclick="openCart()">
+🛒 سبد خرید
+<span id="cartCount">۰</span>
+</button>
+</div>
+
+<div class="cart-panel" id="cartPanel">
+<div class="cart-box">
+
+<h2>🛒 سبد سفارش</h2>
+
+<div id="cartItems"></div>
+
+<div class="total" id="cartTotal">
+مجموع: ۰ تومان
+</div>
+
+<button class="close-btn" onclick="closeCart()">
+بستن
+</button>
+
+</div>
+</div>
+
 <script>
+
 const menu = [
 {title:"☕ قهوه گرم",items:[
 ["اسپرسو سینگل",90],["دبل",120],["آمریکانو",120],
@@ -73,41 +320,178 @@ const menu = [
 ["براونی با بستنی",210],["کوکی شکلاتی",90]]}
 ];
 
-const el=document.getElementById("menu");
-const toman=n=>new Intl.NumberFormat("fa-IR").format(n)+" تومان";
+let cart = [];
 
-menu.forEach(s=>{
-const box=document.createElement("section");
-box.className="section";
-box.innerHTML=`<h2>${s.title}</h2>`;
+const el = document.getElementById("menu");
 
-if(s.items){
-const g=document.createElement("div");
-g.className="grid";
-s.items.forEach(([n,p])=>{
-g.innerHTML+=`<div class="item">
-<span class="name">${n}</span>
-<span class="dots"></span>
-<span class="price">${toman(p)}</span>
-</div>`;
+const toman = n =>
+new Intl.NumberFormat("fa-IR").format(n) + " تومان";
+
+function addToCart(name,price){
+
+const existing = cart.find(item => item.name === name);
+
+if(existing){
+existing.qty++;
+}else{
+cart.push({
+name:name,
+price:price,
+qty:1
 });
-box.appendChild(g);
 }
 
-if(s.cards){
-const g=document.createElement("div");
-g.className="cards";
-s.cards.forEach(([n,p])=>{
-g.innerHTML+=`<div class="card">
-<span class="name">${n}</span>
-<span class="price">${toman(p)}</span>
-</div>`;
+updateCart();
+
+}
+
+function changeQty(index,change){
+
+cart[index].qty += change;
+
+if(cart[index].qty <= 0){
+cart.splice(index,1);
+}
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const count = cart.reduce(
+(total,item)=>total + item.qty,0
+);
+
+document.getElementById("cartCount").textContent =
+new Intl.NumberFormat("fa-IR").format(count);
+
+const container =
+document.getElementById("cartItems");
+
+container.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+total += item.price * item.qty;
+
+const row = document.createElement("div");
+
+row.className = "cart-row";
+
+row.innerHTML = `
+<div>
+<strong>${item.name}</strong>
+<br>
+<span>${toman(item.price)}</span>
+</div>
+
+<div class="qty">
+<button onclick="changeQty(${index},-1)">−</button>
+<span>${item.qty}</span>
+<button onclick="changeQty(${index},1)">+</button>
+</div>
+`;
+
+container.appendChild(row);
+
 });
-box.appendChild(g);
+
+document.getElementById("cartTotal").textContent =
+"مجموع: " + toman(total);
+
+}
+
+function openCart(){
+
+document.getElementById("cartPanel").style.display="block";
+
+}
+
+function closeCart(){
+
+document.getElementById("cartPanel").style.display="none";
+
+}
+
+
+menu.forEach(section=>{
+
+const box=document.createElement("section");
+
+box.className="section";
+
+box.innerHTML=`<h2>${section.title}</h2>`;
+
+if(section.items){
+
+const grid=document.createElement("div");
+
+grid.className="grid";
+
+section.items.forEach(([name,price])=>{
+
+grid.innerHTML += `
+<div class="item">
+
+<span class="name">${name}</span>
+
+<span class="dots"></span>
+
+<span class="price">${toman(price)}</span>
+
+<button class="add-btn"
+onclick="addToCart('${name}',${price})">
+افزودن
+</button>
+
+</div>
+`;
+
+});
+
+box.appendChild(grid);
+
+}
+
+if(section.cards){
+
+const grid=document.createElement("div");
+
+grid.className="cards";
+
+section.cards.forEach(([name,price])=>{
+
+grid.innerHTML += `
+<div class="card">
+
+<span class="name">${name}</span>
+
+<span class="price">${toman(price)}</span>
+
+<button class="add-btn"
+onclick="addToCart('${name}',${price})">
+افزودن به سبد
+</button>
+
+</div>
+`;
+
+});
+
+box.appendChild(grid);
+
 }
 
 el.appendChild(box);
+
 });
+
+updateCart();
+
 </script>
+
 </body>
 </html>
