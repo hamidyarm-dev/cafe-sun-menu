@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<title>کافه خورشید</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#111;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+.menu-wrap{
+  position:relative;
+  width:100%;
+  max-width:1024px;
+  margin:0 auto;
+}
+
+.menu-image{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.hotspot{
+  position:absolute;
+  border:0;
+  background:transparent;
+  padding:0;
+  margin:0;
+  cursor:pointer;
+  z-index:5;
+}
+
+.hotspot:active{
+  background:rgba(255,255,255,.16);
+}
+
+.hotspot.glow{
+  animation:productGlow .8s ease;
+}
+
+@keyframes productGlow{
+  0%{
+    background:rgba(255,255,255,0);
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
+  35%{
+    background:rgba(255,255,255,.32);
+    box-shadow:0 0 22px rgba(255,255,255,.75);
+  }
+  100%{
+    background:rgba(255,255,255,0);
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
+}
+
+.cart-button{
+  position:fixed;
+  left:16px;
+  bottom:16px;
+  z-index:100;
+  border:0;
+  border-radius:50px;
+  padding:13px 18px;
+  background:#fff;
+  color:#111;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);
+  cursor:pointer;
+}
+
+.cart-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:23px;
+  height:23px;
+  margin-right:6px;
+  padding:0 6px;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+  font-size:12px;
+}
+
+.cart-panel{
+  position:fixed;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  z-index:110;
+  display:none;
+  max-width:520px;
+  margin:auto;
+  background:#fff;
+  color:#111;
+  border-radius:18px;
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+
+.cart-panel.show{
+  display:block;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 18px;
+  border-bottom:1px solid #ddd;
+  font-weight:bold;
+}
+
+.close-cart{
+  border:0;
+  background:transparent;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.cart-items{
+  max-height:48vh;
+  overflow-y:auto;
+  padding:10px 15px;
+}
+
+.cart-empty{
+  text-align:center;
+  padding:25px 10px;
+  color:#777;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-name{
+  flex:1;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.cart-price{
+  white-space:nowrap;
+  font-size:13px;
+  color:#555;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  direction:ltr;
+}
+
+.qty-controls button{
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  font-size:18px;
+  line-height:30px;
+  padding:0;
+  cursor:pointer;
+}
+
+.qty-number{
+  min-width:18px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.cart-footer{
+  padding:14px 16px 16px;
+  border-top:1px solid #ddd;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.confirm-order{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:13px;
+  background:#111;
+  color:#fff;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.confirm-order:active{
+  opacity:.8;
+}
+
+.notice{
+  position:fixed;
+  left:50%;
+  bottom:80px;
+  transform:translateX(-50%);
+  z-index:200;
+  display:none;
+  width:max-content;
+  max-width:90%;
+  padding:11px 16px;
+  border-radius:12px;
+  background:rgba(0,0,0,.88);
+  color:#fff;
+  font-size:13px;
+  text-align:center;
+}
+
+.notice.show{
+  display:block;
+}
+
+.espresso{
+  left:38.09%;
+  top:12.04%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.double{
+  left:38.09%;
+  top:14.32%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.americano{
+  left:38.09%;
+  top:16.60%;
+  width:26.37%;
+  height:2.41%;
+}
+
+.cappuccino{
+  left:38.09%;
+  top:19.01%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.latte{
+  left:38.09%;
+  top:21.29%;
+  width:26.37%;
+  height:2.47%;
+}
+
+.mocha{
+  left:38.09%;
+  top:23.76%;
+  width:26.37%;
+  height:2.41%;
+}
+
+.ice-americano{
+  left:67.38%;
+  top:12.04%;
+  width:30.27%;
+  height:2.28%;
+}
+
+.ice-latte{
+  left:67.38%;
+  top:14.32%;
+  width:30.27%;
+  height:2.60%;
+}
+
+.affogato{
+  left:67.38%;
+  top:16.93%;
+  width:30.27%;
+  height:5.86%;
+}
+
+.tea{
+  left:38.09%;
+  top:33.85%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.herbal{
+  left:38.09%;
+  top:36.13%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.masala{
+  left:38.09%;
+  top:38.41%;
+  width:26.37%;
+  height:2.28%;
+}
+
+.hot-chocolate{
+  left:38.09%;
+  top:40.69%;
+  width:26.37%;
+  height:2.60%;
+}
+
+.lemonade{
+  left:67.38%;
+  top:33.85%;
+  width:30.27%;
+  height:2.28%;
+}
+
+.mojito{
+  left:67.38%;
+  top:36.13%;
+  width:30.27%;
+  height:2.28%;
+}
+
+.banana-milk{
+  left:67.38%;
+  top:38.41%;
+  width:30.27%;
+  height:2.28%;
+}
+
+.chocolate-shake{
+  left:4.39%;
+  top:54.04%;
+  width:8.79%;
+  height:22.79%;
+}
+
+.banana-chocolate-shake{
+  left:13.67%;
+  top:54.04%;
+  width:8.30%;
+  height:22.79%;
+}
+
+.nutella-shake{
+  left:22.46%;
+  top:54.04%;
+  width:9.28%;
+  height:22.79%;
+}
+
+.cheeseburger{
+  left:38.09%;
+  top:53.71%;
+  width:16.60%;
+  height:12.37%;
+}
+
+.alfredo{
+  left:55.18%;
+  top:53.71%;
+  width:21.00%;
+  height:12.37%;
+}
+
+.mushroom-burger{
+  left:76.66%;
+  top:53.71%;
+  width:20.51%;
+  height:12.37%;
+}
+
+.special-fries-text{
+  left:38.09%;
+  top:67.00%;
+  width:26.86%;
+  height:2.80%;
+}
+
+.garlic-bread-text{
+  left:38.09%;
+  top:69.45%;
+  width:26.86%;
+  height:2.50%;
+}
+
+.special-fries-image{
+  left:38.09%;
+  top:71.80%;
+  width:19.00%;
+  height:7.20%;
+}
+
+.garlic-bread-image{
+  left:55.00%;
+  top:71.80%;
+  width:10.00%;
+  height:7.20%;
+}
+
+.caesar{
+  left:65.92%;
+  top:66.73%;
+  width:31.25%;
+  height:13.02%;
+}
+
+.chocolate-cake{
+  left:4.39%;
+  top:85.94%;
+  width:19.04%;
+  height:12.04%;
+}
+
+.cheesecake{
+  left:24.41%;
+  top:85.94%;
+  width:19.04%;
+  height:12.04%;
+}
+
+.tiramisu{
+  left:44.43%;
+  top:85.94%;
+  width:15.62%;
+  height:12.04%;
+}
+
+.brownie{
+  left:61.04%;
+  top:85.94%;
+  width:17.58%;
+  height:12.04%;
+}
+
+.cookie{
+  left:79.59%;
+  top:85.94%;
+  width:18.07%;
+  height:12.04%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu-wrap">
+
+  <img
+    class="menu-image"
+    src="file_00000000786081f4974d8223e06752e7.png"
+    alt="منوی کافه خورشید"
+  >
+
+  <button class="hotspot espresso" data-product="اسپرسو سینگل"></button>
+  <button class="hotspot double" data-product="دبل"></button>
+  <button class="hotspot americano" data-product="آمریکانو"></button>
+  <button class="hotspot cappuccino" data-product="کاپوچینو"></button>
+  <button class="hotspot latte" data-product="لاته"></button>
+  <button class="hotspot mocha" data-product="موکا"></button>
+
+  <button class="hotspot ice-americano" data-product="آیس آمریکانو"></button>
+  <button class="hotspot ice-latte" data-product="آیس لاته"></button>
+  <button class="hotspot affogato" data-product="آفوگاتو"></button>
+
+  <button class="hotspot tea" data-product="چای"></button>
+  <button class="hotspot herbal" data-product="دمنوش"></button>
+  <button class="hotspot masala" data-product="ماسالا"></button>
+  <button class="hotspot hot-chocolate" data-product="هات چاکلت"></button>
+
+  <button class="hotspot lemonade" data-product="لیموناد"></button>
+  <button class="hotspot mojito" data-product="موهیتو"></button>
+  <button class="hotspot banana-milk" data-product="شیرموز"></button>
+
+  <button class="hotspot chocolate-shake" data-product="شیک شکلات"></button>
+  <button class="hotspot banana-chocolate-shake" data-product="شیک موز شکلات"></button>
+  <button class="hotspot nutella-shake" data-product="شیک نوتلا"></button>
+
+  <button class="hotspot cheeseburger" data-product="چیزبرگر"></button>
+  <button class="hotspot alfredo" data-product="پاستا آلفردو مرغ"></button>
+  <button class="hotspot mushroom-burger" data-product="ماشروم چیزبرگر"></button>
+
+  <button class="hotspot special-fries-text" data-product="سیب زمینی مخصوص"></button>
+  <button class="hotspot garlic-bread-text" data-product="نان سیر"></button>
+
+  <button class="hotspot special-fries-image" data-product="سیب زمینی مخصوص"></button>
+  <button class="hotspot garlic-bread-image" data-product="نان سیر"></button>
+
+  <button class="hotspot caesar" data-product="سالاد سزار با مرغ"></button>
+
+  <button class="hotspot chocolate-cake" data-product="کیک شکلاتی"></button>
+  <button class="hotspot cheesecake" data-product="چیزکیک"></button>
+  <button class="hotspot tiramisu" data-product="تیرامیسو"></button>
+  <button class="hotspot brownie" data-product="براونی با بستنی"></button>
+  <button class="hotspot cookie" data-product="کوکی شکلاتی"></button>
+
+</div>
+
+<button class="cart-button" id="cartButton">
+  🛒 سبد خرید
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<div class="cart-panel" id="cartPanel">
+
+  <div class="cart-header">
+    <span>سبد سفارش</span>
+    <button class="close-cart" id="closeCart">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">سبد خرید خالی است</div>
+  </div>
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+      <span>مجموع</span>
+      <span id="cartTotal">۰ تومان</span>
+    </div>
+
+    <button class="confirm-order" id="confirmOrder">
+      تأیید سفارش
+    </button>
+
+  </div>
+
+</div>
+
+<div class="notice" id="notice"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+  "https://thdygopdekrsvlaiqenn.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_aakpKysdCimEdtOT4tJpEg_vx2e8jG3";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+
+const defaultProducts = {
+  "اسپرسو سینگل": 90000,
+  "دبل": 120000,
+  "آمریکانو": 120000,
+  "کاپوچینو": 140000,
+  "لاته": 150000,
+  "موکا": 170000,
+  "آیس آمریکانو": 120000,
+  "آیس لاته": 150000,
+  "آفوگاتو": 160000,
+  "چای": 70000,
+  "دمنوش": 110000,
+  "ماسالا": 150000,
+  "هات چاکلت": 160000,
+  "لیموناد": 150000,
+  "موهیتو": 160000,
+  "شیرموز": 180000,
+  "شیک شکلات": 190000,
+  "شیک موز شکلات": 210000,
+  "شیک نوتلا": 240000,
+  "چیزبرگر": 350000,
+  "پاستا آلفردو مرغ": 370000,
+  "ماشروم چیزبرگر": 390000,
+  "سیب زمینی مخصوص": 175000,
+  "نان سیر": 130000,
+  "سالاد سزار با مرغ": 290000,
+  "کیک شکلاتی": 150000,
+  "چیزکیک": 180000,
+  "تیرامیسو": 200000,
+  "براونی با بستنی": 210000,
+  "کوکی شکلاتی": 90000
+};
+
+const products = {
+  ...defaultProducts
+};
+
+const cart = {};
+
+function formatPrice(value){
+  return Number(value || 0).toLocaleString("fa-IR") + " تومان";
+}
+
+function showNotice(message){
+
+  const notice =
+    document.getElementById("notice");
+
+  notice.textContent = message;
+  notice.classList.add("show");
+
+  setTimeout(() => {
+    notice.classList.remove("show");
+  }, 1800);
+}
+
+function addToCart(name){
+
+  if(!products[name]){
+    showNotice("قیمت این محصول پیدا نشد.");
+    return;
+  }
+
+  if(!cart[name]){
+    cart[name] = 0;
+  }
+
+  cart[name]++;
+
+  updateCart();
+
+  showNotice(
+    name + " به سبد خرید اضافه شد"
+  );
+}
+
+function changeQuantity(name, amount){
+
+  if(!cart[name]) return;
+
+  cart[name] += amount;
+
+  if(cart[name] <= 0){
+    delete cart[name];
+  }
+
+  updateCart();
+}
+
+function updateCart(){
+
+  const cartItems =
+    document.getElementById("cartItems");
+
+  const cartCount =
+    document.getElementById("cartCount");
+
+  const cartTotal =
+    document.getElementById("cartTotal");
+
+  const names =
+    Object.keys(cart);
+
+  let totalCount = 0;
+  let totalPrice = 0;
+
+  if(names.length === 0){
+
+    cartItems.innerHTML =
+      '<div class="cart-empty">سبد خرید خالی است</div>';
+
+  }else{
+
+    cartItems.innerHTML = "";
+
+    names.forEach(name => {
+
+      const quantity = cart[name];
+      const price = products[name] || 0;
+
+      totalCount += quantity;
+      totalPrice += price * quantity;
+
+      const item =
+        document.createElement("div");
+
+      item.className = "cart-item";
+
+      item.innerHTML = `
+        <div class="cart-name">${name}</div>
+
+        <div class="cart-price">
+          ${formatPrice(price * quantity)}
+        </div>
+
+        <div class="qty-controls">
+
+          <button
+            type="button"
+            onclick="changeQuantity('${name}', 1)"
+          >+</button>
+
+          <span class="qty-number">
+            ${quantity}
+          </span>
+
+          <button
+            type="button"
+            onclick="changeQuantity('${name}', -1)"
+          >−</button>
+
+        </div>
+      `;
+
+      cartItems.appendChild(item);
+    });
+  }
+
+  cartCount.textContent =
+    totalCount.toLocaleString("fa-IR");
+
+  cartTotal.textContent =
+    formatPrice(totalPrice);
+}
+
+document
+  .querySelectorAll(".hotspot")
+  .forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const name =
+        button.dataset.product;
+
+      button.classList.remove("glow");
+
+      void button.offsetWidth;
+
+      button.classList.add("glow");
+
+      addToCart(name);
+    });
+
+  });
+
+const cartButton =
+  document.getElementById("cartButton");
+
+const cartPanel =
+  document.getElementById("cartPanel");
+
+const closeCart =
+  document.getElementById("closeCart");
+
+cartButton.addEventListener(
+  "click",
+  () => {
+    cartPanel.classList.add("show");
+  }
+);
+
+closeCart.addEventListener(
+  "click",
+  () => {
+    cartPanel.classList.remove("show");
+  }
+);
+
+async function loadProductsFromSupabase(){
+
+  try{
+
+    const { data, error } =
+      await supabaseClient
+        .from("cafe_products")
+        .select("name, price, active, sort_order")
+        .eq("active", true)
+        .order("sort_order", {
+          ascending:true
+        });
+
+    if(error){
+      console.warn(
+        "Supabase products error:",
+        error
+      );
+      return;
+    }
+
+    if(!data || data.length === 0){
+
+      console.warn(
+        "Supabase connected but product table is empty."
+      );
+
+      return;
+    }
+
+    data.forEach(product => {
+
+      if(
+        product.name &&
+        product.price != null
+      ){
+
+        products[product.name] =
+          Number(product.price);
+
+      }
+
+    });
+
+    updateCart();
+
+    console.log(
+      "Products loaded from Supabase:",
+      data.length
+    );
+
+  }catch(error){
+
+    console.warn(
+      "Supabase connection error:",
+      error
+    );
+
+  }
+}
+
+function confirmOrder(){
+
+  const names =
+    Object.keys(cart);
+
+  if(names.length === 0){
+
+    showNotice(
+      "سبد خرید خالی است."
+    );
+
+    return;
+  }
+
+  let total = 0;
+
+  names.forEach(name => {
+
+    total +=
+      (products[name] || 0) *
+      cart[name];
+
+  });
+
+  alert(
+    "سبد سفارش تأیید شد.\n\n" +
+    "تعداد آیتم‌ها: " +
+    Object.values(cart)
+      .reduce((a,b) => a+b, 0) +
+    "\n\nمبلغ کل: " +
+    formatPrice(total)
+  );
+}
+
+document
+  .getElementById("confirmOrder")
+  .addEventListener(
+    "click",
+    confirmOrder
+  );
+
+updateCart();
+
+loadProductsFromSupabase();
+
+</script>
+
+</body>
+</html>
