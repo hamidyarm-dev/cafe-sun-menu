@@ -9,72 +9,94 @@
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  background:#f5f0e5;
-  color:#263b31;
-  font-family:Tahoma,Arial,sans-serif;
-  direction:rtl;
+ margin:0;
+ background:#f5f0e5;
+ color:#263b31;
+ font-family:Tahoma,Arial,sans-serif;
 }
 header{
-  background:linear-gradient(145deg,#102d25,#245344);
-  color:#f8e9c5;
-  text-align:center;
-  padding:30px 15px 25px;
-  border-bottom:4px solid #c49a48;
+ background:linear-gradient(145deg,#102d25,#245344);
+ color:#f8e9c5;
+ text-align:center;
+ padding:28px 12px;
+ border-bottom:4px solid #c49a48;
 }
 .sun{font-size:38px}
-header h1{margin:8px 0;font-size:29px}
-header p{margin:5px 0;color:#e5d4ae;font-size:14px}
-.container{max-width:850px;margin:auto;padding:15px}
+header h1{margin:8px 0;font-size:27px}
+header p{margin:6px 0;color:#e5d4ae;font-size:13px}
+.container{max-width:760px;margin:auto;padding:14px}
 .intro{
-  text-align:center;
-  color:#65766a;
-  font-size:13px;
-  margin:12px 0 22px;
+ text-align:center;
+ color:#65766a;
+ font-size:13px;
+ margin:12px 0 22px;
 }
-.section-title{
-  background:#173c32;
-  color:#f8e9c5;
-  padding:13px 16px;
-  border-right:5px solid #c49a48;
-  border-radius:8px;
-  margin:25px 0 12px;
-  font-size:17px;
+.main-title{
+ background:#173c32;
+ color:#f8e9c5;
+ padding:15px;
+ border-right:5px solid #c49a48;
+ border-radius:9px;
+ margin:25px 0 12px;
+ font-size:18px;
 }
-.category-title{
-  color:#936c2e;
-  font-size:15px;
-  margin:20px 4px 9px;
-  padding-bottom:7px;
-  border-bottom:1px solid #d8c9a9;
+details{
+ background:#fffdf8;
+ border:1px solid #e7dcc5;
+ border-radius:9px;
+ margin:10px 0;
+ overflow:hidden;
 }
+summary{
+ list-style:none;
+ cursor:pointer;
+ padding:16px 14px;
+ font-weight:bold;
+ color:#244c3d;
+ font-size:15px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ min-height:52px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+ content:"+";
+ color:#a77c35;
+ font-size:23px;
+}
+details[open] summary{
+ background:#e9e2d2;
+ border-bottom:1px solid #e0d4bb;
+}
+details[open] summary::after{content:"−"}
+.items{padding:5px 12px 12px}
 .item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  background:#fffdf8;
-  border:1px solid #eee5d3;
-  border-radius:8px;
-  padding:12px 13px;
-  margin:7px 0;
-  font-size:14px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ padding:12px 3px;
+ border-bottom:1px solid #eee8dc;
+ font-size:14px;
 }
+.item:last-child{border-bottom:none}
 .price{
-  color:#936c2e;
-  font-weight:bold;
-  white-space:nowrap;
-  direction:ltr;
+ color:#946d2e;
+ font-weight:bold;
+ white-space:nowrap;
+ direction:ltr;
+ font-size:13px;
 }
 footer{
-  text-align:center;
-  background:#173c32;
-  color:#f8e9c5;
-  padding:24px 12px;
-  margin-top:35px;
-  border-top:4px solid #c49a48;
-  line-height:2;
-  font-size:13px;
+ text-align:center;
+ background:#173c32;
+ color:#f8e9c5;
+ padding:23px 10px;
+ margin-top:30px;
+ border-top:4px solid #c49a48;
+ line-height:2;
+ font-size:13px;
 }
 </style>
 </head>
@@ -82,146 +104,216 @@ footer{
 <body>
 
 <header>
-  <div class="sun">☀️</div>
-  <h1>کافه خورشید</h1>
-  <p>CAFE SUN</p>
-  <p>یک طعم خوب، یک حال خوب</p>
+<div class="sun">☀️</div>
+<h1>کافه خورشید</h1>
+<p>CAFE SUN</p>
+<p>یک طعم خوب، یک حال خوب</p>
 </header>
 
 <div class="container">
-<p class="intro">به منوی کافه خورشید خوش آمدید</p>
+<p class="intro">برای مشاهده هر بخش، روی عنوان آن بزنید.</p>
 
-<div class="section-title">☕ نوشیدنی‌ها</div>
+<div class="main-title">☕ نوشیدنی‌ها</div>
 
-<h3 class="category-title">قهوه گرم</h3>
-<div class="item"><span>اسپرسو</span><span class="price">130,000 تومان</span></div>
-<div class="item"><span>اسپرسو ماکیاتو</span><span class="price">140,000 تومان</span></div>
-<div class="item"><span>کن پانا</span><span class="price">140,000 تومان</span></div>
-<div class="item"><span>کوبانو</span><span class="price">140,000 تومان</span></div>
-<div class="item"><span>رومانو</span><span class="price">145,000 تومان</span></div>
-<div class="item"><span>آمریکانو</span><span class="price">170,000 تومان</span></div>
-<div class="item"><span>نسکافه گلد</span><span class="price">280,000 تومان</span></div>
-<div class="item"><span>کاپوچینو</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>کورتادو</span><span class="price">230,000 تومان</span></div>
-<div class="item"><span>پیکولو</span><span class="price">220,000 تومان</span></div>
-<div class="item"><span>فلت وایت</span><span class="price">190,000 تومان</span></div>
-<div class="item"><span>آفاگاتو</span><span class="price">185,000 تومان</span></div>
-<div class="item"><span>لته</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>لته فندوق</span><span class="price">330,000 تومان</span></div>
-<div class="item"><span>لته ناگیل</span><span class="price">330,000 تومان</span></div>
-<div class="item"><span>لته کارامل</span><span class="price">330,000 تومان</span></div>
-<div class="item"><span>کارامل ماکیاتو</span><span class="price">290,000 تومان</span></div>
-<div class="item"><span>موکا</span><span class="price">250,000 تومان</span></div>
+<details>
+<summary>قهوه گرم</summary>
+<div class="items">
+<div class="item"><span>اسپرسو</span><span class="price">130,000</span></div>
+<div class="item"><span>اسپرسو ماکیاتو</span><span class="price">140,000</span></div>
+<div class="item"><span>کن پانا</span><span class="price">140,000</span></div>
+<div class="item"><span>کوبانو</span><span class="price">140,000</span></div>
+<div class="item"><span>رومانو</span><span class="price">145,000</span></div>
+<div class="item"><span>آمریکانو</span><span class="price">170,000</span></div>
+<div class="item"><span>نسکافه گلد</span><span class="price">280,000</span></div>
+<div class="item"><span>کاپوچینو</span><span class="price">250,000</span></div>
+<div class="item"><span>کورتادو</span><span class="price">230,000</span></div>
+<div class="item"><span>پیکولو</span><span class="price">220,000</span></div>
+<div class="item"><span>فلت وایت</span><span class="price">190,000</span></div>
+<div class="item"><span>آفاگاتو</span><span class="price">185,000</span></div>
+<div class="item"><span>لته</span><span class="price">300,000</span></div>
+<div class="item"><span>لته فندوق</span><span class="price">330,000</span></div>
+<div class="item"><span>لته ناگیل</span><span class="price">330,000</span></div>
+<div class="item"><span>لته کارامل</span><span class="price">330,000</span></div>
+<div class="item"><span>کارامل ماکیاتو</span><span class="price">290,000</span></div>
+<div class="item"><span>موکا</span><span class="price">250,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">نوشیدنی‌های گرم</h3>
-<div class="item"><span>هات چاکلت</span><span class="price">180,000 تومان</span></div>
-<div class="item"><span>ماسالا</span><span class="price">210,000 تومان</span></div>
-<div class="item"><span>وایت چاکلت</span><span class="price">200,000 تومان</span></div>
-<div class="item"><span>پینک چاکلت</span><span class="price">220,000 تومان</span></div>
-<div class="item"><span>شیر عسل</span><span class="price">170,000 تومان</span></div>
-<div class="item"><span>شیر عسل دارچین</span><span class="price">185,000 تومان</span></div>
-<div class="item"><span>چای لاته</span><span class="price">110,000 تومان</span></div>
-<div class="item"><span>شیر داغ</span><span class="price">130,000 تومان</span></div>
+<details>
+<summary>نوشیدنی‌های گرم</summary>
+<div class="items">
+<div class="item"><span>هات چاکلت</span><span class="price">180,000</span></div>
+<div class="item"><span>ماسالا</span><span class="price">210,000</span></div>
+<div class="item"><span>وایت چاکلت</span><span class="price">200,000</span></div>
+<div class="item"><span>پینک چاکلت</span><span class="price">220,000</span></div>
+<div class="item"><span>شیر عسل</span><span class="price">170,000</span></div>
+<div class="item"><span>شیر عسل دارچین</span><span class="price">185,000</span></div>
+<div class="item"><span>چای لاته</span><span class="price">110,000</span></div>
+<div class="item"><span>شیر داغ</span><span class="price">130,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">چای و دمنوش</h3>
-<div class="item"><span>چای</span><span class="price">85,000 تومان</span></div>
-<div class="item"><span>چای VIP</span><span class="price">120,000 تومان</span></div>
-<div class="item"><span>چای سبز</span><span class="price">150,000 تومان</span></div>
-<div class="item"><span>چای ترش</span><span class="price">210,000 تومان</span></div>
-<div class="item"><span>چای مراکشی</span><span class="price">160,000 تومان</span></div>
-<div class="item"><span>دمنوش پونه</span><span class="price">140,000 تومان</span></div>
-<div class="item"><span>دمنوش آویشن</span><span class="price">150,000 تومان</span></div>
-<div class="item"><span>دمنوش بهارنارنج</span><span class="price">165,000 تومان</span></div>
-<div class="item"><span>دمنوش گل گاوزبان</span><span class="price">170,000 تومان</span></div>
-<div class="item"><span>دمنوش ترکیبی</span><span class="price">180,000 تومان</span></div>
+<details>
+<summary>چای و دمنوش</summary>
+<div class="items">
+<div class="item"><span>چای</span><span class="price">85,000</span></div>
+<div class="item"><span>چای VIP</span><span class="price">120,000</span></div>
+<div class="item"><span>چای سبز</span><span class="price">150,000</span></div>
+<div class="item"><span>چای ترش</span><span class="price">210,000</span></div>
+<div class="item"><span>چای مراکشی</span><span class="price">160,000</span></div>
+<div class="item"><span>دمنوش پونه</span><span class="price">140,000</span></div>
+<div class="item"><span>دمنوش آویشن</span><span class="price">150,000</span></div>
+<div class="item"><span>دمنوش بهارنارنج</span><span class="price">165,000</span></div>
+<div class="item"><span>دمنوش گل گاوزبان</span><span class="price">170,000</span></div>
+<div class="item"><span>دمنوش ترکیبی</span><span class="price">180,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">قهوه دمی</h3>
-<div class="item"><span>قهوه ترک</span><span class="price">240,000 تومان</span></div>
-<div class="item"><span>قهوه ارمنی</span><span class="price">230,000 تومان</span></div>
-<div class="item"><span>قهوه یونایی</span><span class="price">260,000 تومان</span></div>
-<div class="item"><span>قهوه فرانسه</span><span class="price">235,000 تومان</span></div>
+<details>
+<summary>قهوه دمی</summary>
+<div class="items">
+<div class="item"><span>قهوه ترک</span><span class="price">240,000</span></div>
+<div class="item"><span>قهوه ارمنی</span><span class="price">230,000</span></div>
+<div class="item"><span>قهوه یونایی</span><span class="price">260,000</span></div>
+<div class="item"><span>قهوه فرانسه</span><span class="price">235,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">نوشیدنی‌های سرد</h3>
-<div class="item"><span>لیموناد</span><span class="price">230,000 تومان</span></div>
-<div class="item"><span>موهیتو</span><span class="price">260,000 تومان</span></div>
-<div class="item"><span>بلو موهیتو</span><span class="price">260,000 تومان</span></div>
-<div class="item"><span>رد موهیتو</span><span class="price">260,000 تومان</span></div>
-<div class="item"><span>جامیکا</span><span class="price">270,000 تومان</span></div>
-<div class="item"><span>ماکتل هلو</span><span class="price">310,000 تومان</span></div>
-<div class="item"><span>ماکتل انبه</span><span class="price">290,000 تومان</span></div>
-<div class="item"><span>ماکتل هاوایی</span><span class="price">280,000 تومان</span></div>
-<div class="item"><span>مارگاریتا</span><span class="price">275,000 تومان</span></div>
-<div class="item"><span>بلو پانچ</span><span class="price">270,000 تومان</span></div>
-<div class="item"><span>خیار سکنجبین</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>آرنولد پالمر</span><span class="price">180,000 تومان</span></div>
-<div class="item"><span>مسکو میول</span><span class="price">195,000 تومان</span></div>
-<div class="item"><span>پانچ کریسمس</span><span class="price">240,000 تومان</span></div>
-<div class="item"><span>پیناکولادا</span><span class="price">265,000 تومان</span></div>
-<div class="item"><span>چری</span><span class="price">260,000 تومان</span></div>
-<div class="item"><span>شربت زعفران</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>شربت بیدمشک</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>شربت بهارنارنج</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>شربت گلاب</span><span class="price">250,000 تومان</span></div>
+<details>
+<summary>نوشیدنی‌های سرد</summary>
+<div class="items">
+<div class="item"><span>لیموناد</span><span class="price">230,000</span></div>
+<div class="item"><span>موهیتو</span><span class="price">260,000</span></div>
+<div class="item"><span>بلو موهیتو</span><span class="price">260,000</span></div>
+<div class="item"><span>رد موهیتو</span><span class="price">260,000</span></div>
+<div class="item"><span>جامیکا</span><span class="price">270,000</span></div>
+<div class="item"><span>ماکتل هلو</span><span class="price">310,000</span></div>
+<div class="item"><span>ماکتل انبه</span><span class="price">290,000</span></div>
+<div class="item"><span>ماکتل هاوایی</span><span class="price">280,000</span></div>
+<div class="item"><span>مارگاریتا</span><span class="price">275,000</span></div>
+<div class="item"><span>بلو پانچ</span><span class="price">270,000</span></div>
+<div class="item"><span>خیار سکنجبین</span><span class="price">250,000</span></div>
+<div class="item"><span>آرنولد پالمر</span><span class="price">180,000</span></div>
+<div class="item"><span>مسکو میول</span><span class="price">195,000</span></div>
+<div class="item"><span>پانچ کریسمس</span><span class="price">240,000</span></div>
+<div class="item"><span>پیناکولادا</span><span class="price">265,000</span></div>
+<div class="item"><span>چری</span><span class="price">260,000</span></div>
+<div class="item"><span>شربت زعفران</span><span class="price">250,000</span></div>
+<div class="item"><span>شربت بیدمشک</span><span class="price">250,000</span></div>
+<div class="item"><span>شربت بهارنارنج</span><span class="price">250,000</span></div>
+<div class="item"><span>شربت گلاب</span><span class="price">250,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">شیک‌ها</h3>
-<div class="item"><span>شیک وانیل</span><span class="price">210,000 تومان</span></div>
-<div class="item"><span>شیک شکلات</span><span class="price">230,000 تومان</span></div>
-<div class="item"><span>شیک بادام زمینی</span><span class="price">350,000 تومان</span></div>
-<div class="item"><span>شیک اورئو</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>شیک نوتلا</span><span class="price">370,000 تومان</span></div>
-<div class="item"><span>شیک قهوه</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>شیک کارامل</span><span class="price">270,000 تومان</span></div>
-<div class="item"><span>شیک موز شکلات</span><span class="price">310,000 تومان</span></div>
-<div class="item"><span>شیک بیسکویت</span><span class="price">290,000 تومان</span></div>
-<div class="item"><span>شیک لوتوس</span><span class="price">370,000 تومان</span></div>
-<div class="item"><span>شیک توت فرنگی</span><span class="price">230,000 تومان</span></div>
+<details>
+<summary>شیک‌ها</summary>
+<div class="items">
+<div class="item"><span>شیک وانیل</span><span class="price">210,000</span></div>
+<div class="item"><span>شیک شکلات</span><span class="price">230,000</span></div>
+<div class="item"><span>شیک بادام زمینی</span><span class="price">350,000</span></div>
+<div class="item"><span>شیک اورئو</span><span class="price">300,000</span></div>
+<div class="item"><span>شیک نوتلا</span><span class="price">370,000</span></div>
+<div class="item"><span>شیک قهوه</span><span class="price">250,000</span></div>
+<div class="item"><span>شیک کارامل</span><span class="price">270,000</span></div>
+<div class="item"><span>شیک موز شکلات</span><span class="price">310,000</span></div>
+<div class="item"><span>شیک بیسکویت</span><span class="price">290,000</span></div>
+<div class="item"><span>شیک لوتوس</span><span class="price">370,000</span></div>
+<div class="item"><span>شیک توت فرنگی</span><span class="price">230,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">کافه VIP</h3>
-<div class="item"><span>پیکوچاکلت</span><span class="price">320,000 تومان</span></div>
-<div class="item"><span>دالگونا نوتلا</span><span class="price">390,000 تومان</span></div>
-<div class="item"><span>دالگونا لوتوس</span><span class="price">375,000 تومان</span></div>
-<div class="item"><span>آفاگاتو ایتالیایی</span><span class="price">290,000 تومان</span></div>
+<details>
+<summary>کافه VIP</summary>
+<div class="items">
+<div class="item"><span>پیکوچاکلت</span><span class="price">320,000</span></div>
+<div class="item"><span>دالگونا نوتلا</span><span class="price">390,000</span></div>
+<div class="item"><span>دالگونا لوتوس</span><span class="price">375,000</span></div>
+<div class="item"><span>آفاگاتو ایتالیایی</span><span class="price">290,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">آیس کافی و نوشیدنی‌های بر پایه اسپرسو</h3>
-<div class="item"><span>آیس لته</span><span class="price">280,000 تومان</span></div>
-<div class="item"><span>آیس کارامل ماکیاتو</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>آیس ماکیاتو فندقی</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>آیس ماکیاتو وانیل</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>آیس ماکیاتو نارگیل</span><span class="price">310,000 تومان</span></div>
-<div class="item"><span>اورنج اسپرسو</span><span class="price">275,000 تومان</span></div>
-<div class="item"><span>لیموناد اسپرسو</span><span class="price">285,000 تومان</span></div>
-<div class="item"><span>هایپ اسپرسو</span><span class="price">250,000 تومان</span></div>
-<div class="item"><span>آیس تونیک اسپرسو</span><span class="price">270,000 تومان</span></div>
-<div class="item"><span>آیس لته اسپنیش</span><span class="price">285,000 تومان</span></div>
-<div class="item"><span>آیس گلد</span><span class="price">270,000 تومان</span></div>
+<details>
+<summary>آیس کافی و نوشیدنی‌های بر پایه اسپرسو</summary>
+<div class="items">
+<div class="item"><span>آیس لته</span><span class="price">280,000</span></div>
+<div class="item"><span>آیس کارامل ماکیاتو</span><span class="price">300,000</span></div>
+<div class="item"><span>آیس ماکیاتو فندقی</span><span class="price">300,000</span></div>
+<div class="item"><span>آیس ماکیاتو وانیل</span><span class="price">300,000</span></div>
+<div class="item"><span>آیس ماکیاتو نارگیل</span><span class="price">310,000</span></div>
+<div class="item"><span>اورنج اسپرسو</span><span class="price">275,000</span></div>
+<div class="item"><span>لیموناد اسپرسو</span><span class="price">285,000</span></div>
+<div class="item"><span>هایپ اسپرسو</span><span class="price">250,000</span></div>
+<div class="item"><span>آیس تونیک اسپرسو</span><span class="price">270,000</span></div>
+<div class="item"><span>آیس لته اسپنیش</span><span class="price">285,000</span></div>
+<div class="item"><span>آیس گلد</span><span class="price">270,000</span></div>
+</div>
+</details>
 
-<div class="section-title">🍕 غذا، دسر و قلیان</div>
+<div class="main-title">🍽 غذا، دسر و قلیان</div>
 
-<h3 class="category-title">پیتزاها</h3>
-<div class="item"><span>پیتزا سان</span><span class="price">490,000 تومان</span></div>
-<div class="item"><span>پیتزا مخلوط</span><span class="price">400,000 تومان</span></div>
-<div class="item"><span>پیتزا پپرونی</span><span class="price">450,000 تومان</span></div>
-<div class="item"><span>پیتزا مرغ</span><span class="price">450,000 تومان</span></div>
-<div class="item"><span>پیتزا گوشت</span><span class="price">1,100,000 تومان</span></div>
-<div class="item"><span>پیتزا گوشت و مرغ</span><span class="price">950,000 تومان</span></div>
+<details>
+<summary>پیتزاها</summary>
+<div class="items">
+<div class="item"><span>پیتزا سان</span><span class="price">490,000</span></div>
+<div class="item"><span>پیتزا مخلوط</span><span class="price">400,000</span></div>
+<div class="item"><span>پیتزا پپرونی</span><span class="price">450,000</span></div>
+<div class="item"><span>پیتزا مرغ</span><span class="price">450,000</span></div>
+<div class="item"><span>پیتزا گوشت</span><span class="price">1,100,000</span></div>
+<div class="item"><span>پیتزا گوشت و مرغ</span><span class="price">950,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">غذا و پیش‌غذا</h3>
-<div class="item"><span>سیب زمینی ساده</span><span class="price">290,000 تومان</span></div>
-<div class="item"><span>سیب زمینی با قارچ و پنیر</span><span class="price">390,000 تومان</span></div>
-<div class="item"><span>همبرگر کلاسیک</span><span class="price">390,000 تومان</span></div>
-<div class="item"><span>چیز برگر</span><span class="price">490,000 تومان</span></div>
-<div class="item"><span>ماشروم برگر</span><span class="price">450,000 تومان</span></div>
-<div class="item"><span>ژامبون تنوری</span><span class="price">350,000 تومان</span></div>
-<div class="item"><span>سالاد سزار</span><span class="price">590,000 تومان</span></div>
-<div class="item"><span>پاستا</span><span class="price">520,000 تومان</span></div>
+<details>
+<summary>غذا و پیش‌غذا</summary>
+<div class="items">
+<div class="item"><span>سیب زمینی ساده</span><span class="price">290,000</span></div>
+<div class="item"><span>سیب زمینی با قارچ و پنیر</span><span class="price">390,000</span></div>
+<div class="item"><span>همبرگر کلاسیک</span><span class="price">390,000</span></div>
+<div class="item"><span>چیز برگر</span><span class="price">490,000</span></div>
+<div class="item"><span>ماشروم برگر</span><span class="price">450,000</span></div>
+<div class="item"><span>ژامبون تنوری</span><span class="price">350,000</span></div>
+<div class="item"><span>سالاد سزار</span><span class="price">590,000</span></div>
+<div class="item"><span>پاستا</span><span class="price">520,000</span></div>
+</div>
+</details>
 
-<h3 class="category-title">کیک و دسر</h3>
-<div class="item"><span>چیز کیک معمولی</span><span class="price">320,000 تومان</span></div>
-<div class="item"><span>چیز کیک نیویورکی</span><span class="price">300,000 تومان</span></div>
-<div class="item"><span>سن سپاستین</span><span class="price">500,000 تومان</span></div>
-<div class="item"><span>دسر لوتوس</span><span class="price">450,000 تومان</span></div>
-<div class="item"><span>کاپ کیک</span><span class="price">160,000 تومان</span></div>
-<div class="item"><span>کیک تک نفره</span><span class="price">350,000 تومان</span></div>
-<div class="item"><span>کیک دو نفره</span><span class="price">650,000 تومان</span></div>
-<div class="item"><span>کیک هویج</span><span class="price">265,000 تومان</span></div>
-<div class="item"><span>کیک خیس معمولی</span><span class="price">200,
+<details>
+<summary>کیک و دسر</summary>
+<div class="items">
+<div class="item"><span>چیز کیک معمولی</span><span class="price">320,000</span></div>
+<div class="item"><span>چیز کیک نیویورکی</span><span class="price">300,000</span></div>
+<div class="item"><span>سن سپاستین</span><span class="price">500,000</span></div>
+<div class="item"><span>دسر لوتوس</span><span class="price">450,000</span></div>
+<div class="item"><span>کاپ کیک</span><span class="price">160,000</span></div>
+<div class="item"><span>کیک تک نفره</span><span class="price">350,000</span></div>
+<div class="item"><span>کیک دو نفره</span><span class="price">650,000</span></div>
+<div class="item"><span>کیک هویج</span><span class="price">265,000</span></div>
+<div class="item"><span>کیک خیس معمولی</span><span class="price">200,000</span></div>
+<div class="item"><span>کیک خیس با دیزاین خامه و بستنی</span><span class="price">360,000</span></div>
+</div>
+</details>
+
+<details>
+<summary>قلیان‌ها</summary>
+<div class="items">
+<div class="item"><span>قلیان مسکو</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان لاو</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان دوسیب</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان بلوبری</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان هندوانه یخ</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان آدامس دارچین</span><span class="price">350,000</span></div>
+<div class="item"><span>قلیان با سرویس</span><span class="price">650,000</span></div>
+<div class="item"><span>قلیان با سرویس ویژه</span><span class="price">850,000</span></div>
+</div>
+</details>
+
+</div>
+
+<footer>
+☀️ کافه خورشید | CAFE SUN<br>
+یک طعم خوب، یک حال خوب<br>
+منتظر دیدار دوباره شما هستیم.
+</footer>
+
+</body>
+</html>
