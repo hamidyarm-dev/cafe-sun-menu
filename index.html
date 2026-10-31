@@ -1,121 +1,140 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#173c32">
-<title>منوی کافه خورشید | Cafe Sun</title>
+<title>منوی کافه خورشید | Cafe Sun</title><style>
+* {
+    box-sizing: border-box;
+}
 
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;
- background:#f5f0e5;
- color:#263b31;
- font-family:Tahoma,Arial,sans-serif;
+body {
+    margin: 0;
+    padding: 18px 12px 40px;
+    background: #f4f0e6;
+    color: #26382c;
+    font-family: Tahoma, Arial, sans-serif;
 }
-header{
- background:linear-gradient(145deg,#102d25,#245344);
- color:#f8e9c5;
- text-align:center;
- padding:28px 12px;
- border-bottom:4px solid #c49a48;
-}
-.sun{font-size:38px}
-header h1{margin:8px 0;font-size:27px}
-header p{margin:6px 0;color:#e5d4ae;font-size:13px}
-.container{max-width:760px;margin:auto;padding:14px}
-.intro{
- text-align:center;
- color:#65766a;
- font-size:13px;
- margin:12px 0 22px;
-}
-.main-title{
- background:#173c32;
- color:#f8e9c5;
- padding:15px;
- border-right:5px solid #c49a48;
- border-radius:9px;
- margin:25px 0 12px;
- font-size:18px;
-}
-details{
- background:#fffdf8;
- border:1px solid #e7dcc5;
- border-radius:9px;
- margin:10px 0;
- overflow:hidden;
-}
-summary{
- list-style:none;
- cursor:pointer;
- padding:16px 14px;
- font-weight:bold;
- color:#244c3d;
- font-size:15px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- min-height:52px;
-}
-summary::-webkit-details-marker{display:none}
-summary::after{
- content:"+";
- color:#a77c35;
- font-size:23px;
-}
-details[open] summary{
- background:#e9e2d2;
- border-bottom:1px solid #e0d4bb;
-}
-details[open] summary::after{content:"−"}
-.items{padding:5px 12px 12px}
-.item{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:10px;
- padding:12px 3px;
- border-bottom:1px solid #eee8dc;
- font-size:14px;
-}
-.item:last-child{border-bottom:none}
-.price{
- color:#946d2e;
- font-weight:bold;
- white-space:nowrap;
- direction:ltr;
- font-size:13px;
-}
-footer{
- text-align:center;
- background:#173c32;
- color:#f8e9c5;
- padding:23px 10px;
- margin-top:30px;
- border-top:4px solid #c49a48;
- line-height:2;
- font-size:13px;
-}
-</style>
-</head>
 
-<body>
+.container {
+    max-width: 650px;
+    margin: auto;
+}
 
-<header>
-<div class="sun">☀️</div>
-<h1>کافه خورشید</h1>
-<p>CAFE SUN</p>
-<p>یک طعم خوب، یک حال خوب</p>
-</header>
+header {
+    text-align: center;
+    background: #183c2d;
+    color: #f5e8c8;
+    padding: 30px 15px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+    border-bottom: 4px solid #c49a45;
+}
 
-<div class="container">
-<p class="intro">برای مشاهده هر بخش، روی عنوان آن بزنید.</p>
+.sun {
+    font-size: 38px;
+}
 
-<div class="main-title">☕ نوشیدنی‌ها</div>
+header h1 {
+    margin: 8px 0;
+    font-size: 28px;
+}
 
-<details>
+header h2 {
+    margin: 5px 0;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #d9bd7d;
+}
+
+header p {
+    margin: 14px 0 0;
+    font-size: 13px;
+}
+
+.group-title {
+    margin: 25px 5px 12px;
+    color: #98712d;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+details {
+    background: #fffdf7;
+    border: 1px solid #e2d7bd;
+    border-radius: 13px;
+    margin-bottom: 11px;
+    overflow: hidden;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.04);
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 17px 16px;
+    background: #214735;
+    color: #fff4d9;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    color: #e4bd65;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+details[open] summary::after {
+    content: "−";
+}
+
+.items {
+    padding: 5px 15px 12px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 2px;
+    border-bottom: 1px dashed #e6dfcf;
+    font-size: 14px;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.price {
+    direction: ltr;
+    white-space: nowrap;
+    color: #98712d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: #6b725f;
+    font-size: 13px;
+}
+</style></head><body>
+<div class="container"><header>
+    <div class="sun">☀️</div>
+    <h1>کافه خورشید</h1>
+    <h2>CAFE SUN</h2>
+    <p>یک طعم خوب، یک حال خوب</p>
+</header><div class="group-title">☕ نوشیدنی‌ها</div><details>
 <summary>قهوه گرم</summary>
 <div class="items">
 <div class="item"><span>اسپرسو</span><span class="price">130,000</span></div>
@@ -137,9 +156,7 @@ footer{
 <div class="item"><span>کارامل ماکیاتو</span><span class="price">290,000</span></div>
 <div class="item"><span>موکا</span><span class="price">250,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>نوشیدنی‌های گرم</summary>
 <div class="items">
 <div class="item"><span>هات چاکلت</span><span class="price">180,000</span></div>
@@ -151,9 +168,7 @@ footer{
 <div class="item"><span>چای لاته</span><span class="price">110,000</span></div>
 <div class="item"><span>شیر داغ</span><span class="price">130,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>چای و دمنوش</summary>
 <div class="items">
 <div class="item"><span>چای</span><span class="price">85,000</span></div>
@@ -167,9 +182,7 @@ footer{
 <div class="item"><span>دمنوش گل گاوزبان</span><span class="price">170,000</span></div>
 <div class="item"><span>دمنوش ترکیبی</span><span class="price">180,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>قهوه دمی</summary>
 <div class="items">
 <div class="item"><span>قهوه ترک</span><span class="price">240,000</span></div>
@@ -177,9 +190,7 @@ footer{
 <div class="item"><span>قهوه یونایی</span><span class="price">260,000</span></div>
 <div class="item"><span>قهوه فرانسه</span><span class="price">235,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>نوشیدنی‌های سرد</summary>
 <div class="items">
 <div class="item"><span>لیموناد</span><span class="price">230,000</span></div>
@@ -203,26 +214,22 @@ footer{
 <div class="item"><span>شربت بهارنارنج</span><span class="price">250,000</span></div>
 <div class="item"><span>شربت گلاب</span><span class="price">250,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>شیک‌ها</summary>
 <div class="items">
-<div class="item"><span>شیک وانیل</span><span class="price">210,000</span></div>
-<div class="item"><span>شیک شکلات</span><span class="price">230,000</span></div>
-<div class="item"><span>شیک بادام زمینی</span><span class="price">350,000</span></div>
-<div class="item"><span>شیک اورئو</span><span class="price">300,000</span></div>
-<div class="item"><span>شیک نوتلا</span><span class="price">370,000</span></div>
-<div class="item"><span>شیک قهوه</span><span class="price">250,000</span></div>
-<div class="item"><span>شیک کارامل</span><span class="price">270,000</span></div>
-<div class="item"><span>شیک موز شکلات</span><span class="price">310,000</span></div>
-<div class="item"><span>شیک بیسکویت</span><span class="price">290,000</span></div>
-<div class="item"><span>شیک لوتوس</span><span class="price">370,000</span></div>
-<div class="item"><span>شیک توت فرنگی</span><span class="price">230,000</span></div>
+<div class="item"><span>وانیل</span><span class="price">210,000</span></div>
+<div class="item"><span>شکلات</span><span class="price">230,000</span></div>
+<div class="item"><span>بادام زمینی</span><span class="price">350,000</span></div>
+<div class="item"><span>اورئو</span><span class="price">300,000</span></div>
+<div class="item"><span>نوتلا</span><span class="price">370,000</span></div>
+<div class="item"><span>قهوه</span><span class="price">250,000</span></div>
+<div class="item"><span>کارامل</span><span class="price">270,000</span></div>
+<div class="item"><span>موز شکلات</span><span class="price">310,000</span></div>
+<div class="item"><span>بیسکویت</span><span class="price">290,000</span></div>
+<div class="item"><span>لوتوس</span><span class="price">370,000</span></div>
+<div class="item"><span>توت فرنگی</span><span class="price">230,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>کافه VIP</summary>
 <div class="items">
 <div class="item"><span>پیکوچاکلت</span><span class="price">320,000</span></div>
@@ -230,9 +237,7 @@ footer{
 <div class="item"><span>دالگونا لوتوس</span><span class="price">375,000</span></div>
 <div class="item"><span>آفاگاتو ایتالیایی</span><span class="price">290,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>آیس کافی و نوشیدنی‌های بر پایه اسپرسو</summary>
 <div class="items">
 <div class="item"><span>آیس لته</span><span class="price">280,000</span></div>
@@ -247,11 +252,7 @@ footer{
 <div class="item"><span>آیس لته اسپنیش</span><span class="price">285,000</span></div>
 <div class="item"><span>آیس گلد</span><span class="price">270,000</span></div>
 </div>
-</details>
-
-<div class="main-title">🍽 غذا، دسر و قلیان</div>
-
-<details>
+</details><div class="group-title">🍕 غذا و خوراکی</div><details>
 <summary>پیتزاها</summary>
 <div class="items">
 <div class="item"><span>پیتزا سان</span><span class="price">490,000</span></div>
@@ -261,9 +262,7 @@ footer{
 <div class="item"><span>پیتزا گوشت</span><span class="price">1,100,000</span></div>
 <div class="item"><span>پیتزا گوشت و مرغ</span><span class="price">950,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>غذا و پیش‌غذا</summary>
 <div class="items">
 <div class="item"><span>سیب زمینی ساده</span><span class="price">290,000</span></div>
@@ -275,9 +274,7 @@ footer{
 <div class="item"><span>سالاد سزار</span><span class="price">590,000</span></div>
 <div class="item"><span>پاستا</span><span class="price">520,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>کیک و دسر</summary>
 <div class="items">
 <div class="item"><span>چیز کیک معمولی</span><span class="price">320,000</span></div>
@@ -291,9 +288,7 @@ footer{
 <div class="item"><span>کیک خیس معمولی</span><span class="price">200,000</span></div>
 <div class="item"><span>کیک خیس با دیزاین خامه و بستنی</span><span class="price">360,000</span></div>
 </div>
-</details>
-
-<details>
+</details><details>
 <summary>قلیان‌ها</summary>
 <div class="items">
 <div class="item"><span>قلیان مسکو</span><span class="price">350,000</span></div>
@@ -305,15 +300,9 @@ footer{
 <div class="item"><span>قلیان با سرویس</span><span class="price">650,000</span></div>
 <div class="item"><span>قلیان با سرویس ویژه</span><span class="price">850,000</span></div>
 </div>
-</details>
-
-</div>
-
-<footer>
-☀️ کافه خورشید | CAFE SUN<br>
-یک طعم خوب، یک حال خوب<br>
-منتظر دیدار دوباره شما هستیم.
-</footer>
-
+</details><footer>
+کافه خورشید ☀️<br>
+یک طعم خوب، یک حال خوب
+</footer></div>
 </body>
 </html>
